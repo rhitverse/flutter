@@ -17,7 +17,7 @@ class _TestPageState extends State<TestPage> {
       appBar: AppBar(),
       body: Center(
         child: Text(
-          'This is counter: $count',
+          'This is counter : $count',
           style: TextStyle(fontSize: 30, color: Colors.white),
         ),
       ),
