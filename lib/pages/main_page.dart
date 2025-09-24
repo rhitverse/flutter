@@ -1,4 +1,5 @@
 import 'package:coading/pages/home_page.dart';
+import 'package:coading/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -47,19 +48,16 @@ class _MainPageState extends State<MainPage> {
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.white,
       ),
     );
   }
+
   final pages = [
     HomePage(),
-    Center(
-      child: Text('Favorite'),),
-    Center(
-      child: Text('Add Post'),),
-    Center(
-      child: Text('Massages'),),
-    Center(
-      child: Text('User'),),
+    Center(child: Text('Favorite')),
+    Center(child: Text('Add Post')),
+    Center(child: Text('Massages')),
+    ProfilePage(),
   ];
 }

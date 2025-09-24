@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.background,
         brightness: Brightness.dark,
       ),
-       initialRoute: '/',
-       routes: {
+      initialRoute: '/',
+      routes: {
         '/': (context) => LoginPage(),
         '/home': (context) => HomePage(),
         '/main': (context) => MainPage(),

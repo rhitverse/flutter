@@ -9,15 +9,14 @@ class PostItem extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
       child: Column(
         children: [
           Row(
             children: [
               Image.asset('assets/temp/user1.png', width: 40, height: 40),
               SizedBox(width: 16),
-              Text(
-                user, style: AppText.subtitle3),
+              Text(user, style: AppText.subtitle3),
             ],
           ),
           SizedBox(height: 12),

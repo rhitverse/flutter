@@ -23,9 +23,7 @@ class HomePage extends StatelessWidget {
         },
         itemCount: users.length,
         separatorBuilder: (BuildContext context, int index) {
-          return SizedBox(
-            height: 24,
-          );
+          return SizedBox(height: 24);
         },
       ),
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TestPage extends StatefulWidget {
-
   const TestPage({super.key});
 
   @override
@@ -9,7 +8,7 @@ class TestPage extends StatefulWidget {
 }
 
 class _TestPageState extends State<TestPage> {
-   int count = 0;
+  int count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +20,13 @@ class _TestPageState extends State<TestPage> {
           style: TextStyle(fontSize: 30, color: Colors.white),
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        setState(() {
-       count++;
-        });
-      },
-      child: Icon(Icons.add),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            count++;
+          });
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
