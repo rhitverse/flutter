@@ -1,6 +1,7 @@
 import 'package:coading/components/post_item.dart';
-import 'package:coading/styles/app_colors.dart';
+import 'package:coading/components/toolbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -11,11 +12,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     mockUsersFromServer();
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.background,
-        centerTitle: false,
-        title: Text('5minuteflutter', style: TextStyle(color: Colors.white)),
-        actions: [Icon(Icons.location_on_outlined)],
+      appBar: Toolbar(
+        title: '5minutefultter',
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: SvgPicture.asset('assets/svg/ic_location.svg'),
+          ),
+        ],
       ),
       body: ListView.separated(
         itemBuilder: (context, index) {

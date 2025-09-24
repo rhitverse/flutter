@@ -1,5 +1,8 @@
+import 'package:coading/components/toolbar.dart';
 import 'package:coading/styles/app_text.dart';
 import 'package:flutter/material.dart';
+
+enum ProfileMenu { edit, logout }
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -7,6 +10,34 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: Toolbar(
+        title: 'Profile',
+        actions: [
+          PopupMenuButton<ProfileMenu>(
+            onSelected: (value) {
+              switch (value) {
+                case ProfileMenu.edit:
+                  print('edit');
+                  break;
+                case ProfileMenu.logout:
+                  print('logout');
+                  break;
+                default:
+              }
+            },
+            icon: const Icon(Icons.more_vert_rounded),
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem(child: Text('Edit'), value: ProfileMenu.edit),
+                PopupMenuItem(
+                  child: Text('Log Out'),
+                  value: ProfileMenu.logout,
+                ),
+              ];
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Image.asset('assets/temp/user1.png', width: 90, height: 90),
@@ -16,7 +47,7 @@ class ProfilePage extends StatelessWidget {
           Text('Hawkins,America', style: AppText.subtitle3),
           SizedBox(height: 12),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Column(
                 children: [
@@ -43,4 +74,6 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
+
+  Widget? widget({required Row child}) {}
 }
