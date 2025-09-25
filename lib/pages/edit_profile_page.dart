@@ -1,5 +1,6 @@
 import 'package:coading/components/app_text_field.dart';
 import 'package:coading/components/toolbar.dart';
+import 'package:coading/config/app_strings.dart';
 import 'package:flutter/material.dart';
 
 class EditProfilePage extends StatelessWidget {
@@ -8,7 +9,7 @@ class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Toolbar(title: 'Edit Profile'),
+      appBar: Toolbar(title: AppStrings.editprofile),
       body: Column(
         children: [
           AppTextField(hint: 'First name'),

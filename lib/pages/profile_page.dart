@@ -1,4 +1,5 @@
 import 'package:coading/components/toolbar.dart';
+import 'package:coading/config/app_routes.dart';
 import 'package:coading/styles/app_text.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class ProfilePage extends StatelessWidget {
             onSelected: (value) {
               switch (value) {
                 case ProfileMenu.edit:
-                  Navigator.of(context).pushNamed('/edit_profile');
+                  Navigator.of(context).pushNamed(AppRoutes.editprofile);
                   break;
                 case ProfileMenu.logout:
                   print('logout');
