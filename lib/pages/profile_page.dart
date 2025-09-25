@@ -28,10 +28,10 @@ class ProfilePage extends StatelessWidget {
             icon: const Icon(Icons.more_vert_rounded),
             itemBuilder: (context) {
               return [
-                PopupMenuItem(child: Text('Edit'), value: ProfileMenu.edit),
+                PopupMenuItem(value: ProfileMenu.edit, child: Text('Edit')),
                 PopupMenuItem(
-                  child: Text('Log Out'),
                   value: ProfileMenu.logout,
+                  child: Text('Log Out'),
                 ),
               ];
             },
@@ -78,5 +78,7 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget? widget({required Row child}) {}
+  Widget? widget({required Row child}) {
+    return null;
+  }
 }
