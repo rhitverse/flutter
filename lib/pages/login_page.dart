@@ -1,3 +1,6 @@
+import 'package:coading/config/app_icon.dart';
+import 'package:coading/config/app_routes.dart';
+import 'package:coading/config/app_strings.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -14,7 +17,7 @@ class LoginPage extends StatelessWidget {
               children: [
                 Spacer(),
                 Text(
-                  "Hello Welcome Back!",
+                  AppStrings.helloWelcome,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 28,
@@ -24,13 +27,13 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 Text(
-                  "Login to continue",
+                  AppStrings.loginToContinue,
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
                 Spacer(),
                 TextField(
                   decoration: InputDecoration(
-                    hintText: "Username",
+                    hintText: AppStrings.username,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
@@ -41,7 +44,7 @@ class LoginPage extends StatelessWidget {
                 SizedBox(height: 16),
                 TextField(
                   decoration: InputDecoration(
-                    hintText: "Password",
+                    hintText: AppStrings.password,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
@@ -56,7 +59,7 @@ class LoginPage extends StatelessWidget {
                       print("Clicked");
                     },
                     style: TextButton.styleFrom(foregroundColor: Colors.white),
-                    child: Text("Forget Password?"),
+                    child: Text(AppStrings.forgetPassword),
                   ),
                 ),
                 SizedBox(height: 32),
@@ -65,17 +68,22 @@ class LoginPage extends StatelessWidget {
                   height: 48,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/main');
+                      Navigator.of(
+                        context,
+                      ).pushReplacementNamed(AppRoutes.main);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
                       foregroundColor: Colors.black,
                     ),
-                    child: Text("Log in"),
+                    child: Text(AppStrings.login),
                   ),
                 ),
                 Spacer(),
-                Text("Or sign in with", style: TextStyle(color: Colors.white)),
+                Text(
+                  AppStrings.orSignInWith,
+                  style: TextStyle(color: Colors.white),
+                ),
                 SizedBox(height: 15),
                 SizedBox(
                   height: 48,
@@ -93,11 +101,7 @@ class LoginPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          "assets/image/google.png",
-                          width: 22,
-                          height: 22,
-                        ),
+                        Image.asset(AppIcon.icGoogle, width: 22, height: 22),
                         SizedBox(width: 8),
                         Text("Login with Google"),
                       ],
@@ -121,11 +125,7 @@ class LoginPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          "assets/image/facebook.png",
-                          width: 22,
-                          height: 22,
-                        ),
+                        Image.asset(AppIcon.icFacebook, width: 22, height: 22),
                         SizedBox(width: 8),
                         Text("Login with Facebook"),
                       ],

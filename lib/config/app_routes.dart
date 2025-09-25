@@ -12,7 +12,7 @@ class AppRoutes {
   };
 
   static const login = '/';
-  static const home = '/';
-  static const main = '/';
-  static const editprofile = '/';
+  static const home = '/home';
+  static const main = '/main';
+  static const editprofile = '/edit_profile';
 }
