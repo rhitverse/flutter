@@ -1,4 +1,5 @@
 import 'package:coading/components/toolbar.dart';
+import 'package:coading/components/user_avatar.dart';
 import 'package:coading/config/app_routes.dart';
 import 'package:coading/styles/app_text.dart';
 import 'package:flutter/material.dart';
@@ -41,10 +42,7 @@ class ProfilePage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
-            child: Image.asset('assets/temp/user1.png', width: 90, height: 90),
-          ),
+          UserAvatar(size: 90,),
           SizedBox(height: 24),
           Text('Steve Harrington', style: AppText.header2),
           SizedBox(height: 12),
