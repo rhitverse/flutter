@@ -1,6 +1,7 @@
 import 'package:coading/config/app_icon.dart';
 import 'package:coading/config/app_routes.dart';
 import 'package:coading/config/app_strings.dart';
+import 'package:coading/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -38,7 +39,7 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
                     filled: true,
-                    fillColor: Colors.white.withOpacity(0.5),
+                    fillColor: AppColors.fieldcolor,
                   ),
                 ),
                 SizedBox(height: 16),
@@ -49,7 +50,7 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
                     filled: true,
-                    fillColor: Colors.white.withOpacity(0.5),
+                    fillColor: AppColors.fieldcolor,
                   ),
                 ),
                 Align(

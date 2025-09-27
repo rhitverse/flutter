@@ -1,3 +1,4 @@
+import 'package:coading/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
@@ -13,7 +14,7 @@ class AppTextField extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         filled: true,
-        fillColor: Colors.white.withOpacity(0.5),
+        fillColor: AppColors.fieldcolor,
       ),
     );
   }
