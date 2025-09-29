@@ -4,8 +4,7 @@ import 'package:coading/components/user_avatar.dart';
 import 'package:coading/config/app_strings.dart';
 import 'package:coading/styles/app_colors.dart';
 import 'package:flutter/material.dart';
-
-import 'gender_selection_page.dart';  // new file banayenge
+import 'gender_selection_page.dart';
 
 enum Gender { none, male, female, custom, preferNot }
 

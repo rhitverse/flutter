@@ -1,3 +1,4 @@
+import 'package:coading/config/app_icon.dart';
 import 'package:coading/pages/home_page.dart';
 import 'package:coading/pages/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -16,26 +17,27 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:
+      BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/svg/ic_home.svg'),
+            icon: SvgPicture.asset(AppIcon.icHome),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/svg/ic_fav.svg'),
+            icon: SvgPicture.asset(AppIcon.icFavorite),
             label: 'Favorite',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/svg/ic_add.svg'),
+            icon: SvgPicture.asset(AppIcon.icAdd),
             label: 'Add Post',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/svg/ic_sms.svg'),
+            icon: SvgPicture.asset(AppIcon.icMessage),
             label: 'Massage',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/svg/ic_user.svg'),
+            icon: SvgPicture.asset(AppIcon.icUser),
             label: 'User',
           ),
         ],
@@ -61,3 +63,22 @@ class _MainPageState extends State<MainPage> {
     ProfilePage(),
   ];
 }
+
+class MyBottomNavigation extends StatelessWidget {
+  const MyBottomNavigation({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(25))
+          ),
+        )
+      ],
+    );
+  }
+}
+

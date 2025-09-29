@@ -33,7 +33,9 @@ class ProfilePage extends StatelessWidget {
                 PopupMenuItem(value: ProfileMenu.edit, child: Text('Edit')),
                 PopupMenuItem(
                   value: ProfileMenu.logout,
-                  child: Text('Log Out'),
+                  child: Text('Log Out',
+                    style: TextStyle(color: Colors.red),
+                  ),
                 ),
               ];
             },
