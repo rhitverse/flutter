@@ -4,6 +4,8 @@ import 'package:coading/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../styles/app_colors.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -12,73 +14,107 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int currentIndex = 0;
+  Menus currentIndex = Menus.home;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[currentIndex],
-      bottomNavigationBar:
-      BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(AppIcon.icHome),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(AppIcon.icFavorite),
-            label: 'Favorite',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(AppIcon.icAdd),
-            label: 'Add Post',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(AppIcon.icMessage),
-            label: 'Massage',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(AppIcon.icUser),
-            label: 'User',
-          ),
-        ],
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        backgroundColor: Colors.white,
+      body: pages[currentIndex.index],
+      bottomNavigationBar: MyButtonNavigation(
+          currentIndex: currentIndex.index,
+        onTap: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+            },
       ),
     );
   }
 
   final pages = [
     HomePage(),
-    Center(child: Text('Favorite')),
-    Center(child: Text('Add Post')),
-    Center(child: Text('Massages')),
+    Center(
+      child: Text('Favorite'),
+  ),
+    Center(
+      child: Text('Add Post'),
+    ),
+    Center(
+      child: Text('Massages'),
+    ),
     ProfilePage(),
   ];
 }
-
-class MyBottomNavigation extends StatelessWidget {
-  const MyBottomNavigation({super.key});
-
+enum Menus{
+  home,
+  favorite,
+  addPost,
+  massages,
+  user,
+}
+class MyButtonNavigation extends StatelessWidget {
+  final int currentIndex;
+  final ValueChanged<Menus> onTap;
+  const MyButtonNavigation(
+      {super.key, required this.currentIndex, required this.onTap});
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(25))
+    return Container(
+      height: 87,
+      margin: EdgeInsets.all(24),
+      child: Stack(
+        children: [
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 17,
+            child: Container(
+              height: 70,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(25))
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                      child: IconButton(onPressed: () =>onTap(Menus.home),
+
+                          icon: SvgPicture.asset(AppIcon.icHome))),
+                  Expanded(
+                      child: IconButton(onPressed: () =>onTap(Menus.favorite),
+                          icon: SvgPicture.asset(AppIcon.icFavorite))),
+                  Spacer(),
+                  Expanded(
+                      child: IconButton(onPressed: () =>onTap(Menus.massages),
+                          icon: SvgPicture.asset(AppIcon.icMessage))),
+                  Expanded(
+                      child: IconButton(onPressed: () =>onTap(Menus.user),
+                          icon: SvgPicture.asset(AppIcon.icUser))),
+
+                ],
+              ),
+            ),
           ),
-        )
-      ],
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 0,
+            child: GestureDetector(
+              onTap: () => onTap(Menus.addPost),
+              child: Container(
+                width: 64,
+                height: 64,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: AppColors.primary,
+                  shape: BoxShape.circle,
+                ),
+                child: SvgPicture.asset(AppIcon.icAdd),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
-
