@@ -1,3 +1,4 @@
+import 'package:coading/components/bottom_navigation_item.dart';
 import 'package:coading/config/app_icon.dart';
 import 'package:coading/pages/home_page.dart';
 import 'package:coading/pages/profile_page.dart';
@@ -19,14 +20,15 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: pages[currentIndex.index],
       bottomNavigationBar: MyButtonNavigation(
-          currentIndex: currentIndex.index,
+        currentIndex: currentIndex,
         onTap: (value) {
-            setState(() {
-              currentIndex = value;
-            });
-            },
+          setState(() {
+            currentIndex = value;
+          });
+        },
       ),
     );
   }
@@ -35,7 +37,7 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     Center(
       child: Text('Favorite'),
-  ),
+    ),
     Center(
       child: Text('Add Post'),
     ),
@@ -53,7 +55,7 @@ enum Menus{
   user,
 }
 class MyButtonNavigation extends StatelessWidget {
-  final int currentIndex;
+  final Menus currentIndex;
   final ValueChanged<Menus> onTap;
   const MyButtonNavigation(
       {super.key, required this.currentIndex, required this.onTap});
@@ -77,19 +79,34 @@ class MyButtonNavigation extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                      child: IconButton(onPressed: () =>onTap(Menus.home),
-
-                          icon: SvgPicture.asset(AppIcon.icHome))),
+                      child:
+                       BottomNavigationItem(
+                           onPressed: () =>onTap(Menus.home),
+                           icon: AppIcon.icHome,
+                           current: currentIndex,
+                           name: Menus.home),
+                ),
                   Expanded(
-                      child: IconButton(onPressed: () =>onTap(Menus.favorite),
-                          icon: SvgPicture.asset(AppIcon.icFavorite))),
+                      child: BottomNavigationItem(
+                  onPressed: () =>onTap(Menus.favorite),
+                  icon: AppIcon.icFavorite,
+                  current: currentIndex,
+                  name: Menus.favorite)
+                   ),
                   Spacer(),
                   Expanded(
-                      child: IconButton(onPressed: () =>onTap(Menus.massages),
-                          icon: SvgPicture.asset(AppIcon.icMessage))),
+                      child:
+                      BottomNavigationItem(
+                          onPressed: () =>onTap(Menus.massages),
+                          icon: AppIcon.icMessage,
+                          current: currentIndex,
+                          name: Menus.massages)),
                   Expanded(
-                      child: IconButton(onPressed: () =>onTap(Menus.user),
-                          icon: SvgPicture.asset(AppIcon.icUser))),
+                      child: BottomNavigationItem(
+                          onPressed: () =>onTap(Menus.user),
+                          icon: AppIcon.icUser,
+                          current: currentIndex,
+                          name: Menus.user)),
 
                 ],
               ),
