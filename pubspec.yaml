@@ -1,5 +1,6 @@
 name: coading
 description: "A new Flutter project."
+
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -9,7 +10,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # followed by an optional build number separated by a +.
 # Both the version and the builder number may be overridden in flutter
 # build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
+# In Android, build-name is used as versionName while build-number is used as versionCode.
 # Read more about Android versioning at https://developer.android.com/studio/publish/versioning
 # In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
 # Read more about iOS versioning at
@@ -31,9 +32,17 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  # Flutter map package for maps
+  flutter_map: ^5.0.0
+
+  # Latlong2 for geographical coordinates (required by flutter_map)
+  latlong2: ^0.9.1
+  http: ^1.5.0
+
+  # Flutter SVG support for vector images
   flutter_svg: ^2.2.1
+
+  # Cupertino icons for iOS style icons
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
@@ -64,7 +73,6 @@ flutter:
     - assets/temp/
     - assets/svg/
 
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
@@ -85,7 +93,7 @@ flutter:
         - asset: assets/font/Urbanist-Medium.ttf
           weight: 500
         - asset: assets/font/Urbanist-SemiBold.ttf
-          weight: 600  
+          weight: 600
         - asset: assets/font/Urbanist-Bold.ttf
           weight: 700
         - asset: assets/font/Urbanist-ExtraBold.ttf
@@ -100,3 +108,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+

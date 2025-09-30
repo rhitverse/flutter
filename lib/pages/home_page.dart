@@ -1,5 +1,6 @@
 import 'package:coading/components/post_item.dart';
 import 'package:coading/components/toolbar.dart';
+import 'package:coading/config/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -16,7 +17,9 @@ class HomePage extends StatelessWidget {
         title: '5minutefultter',
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.nearby);
+            },
             icon: SvgPicture.asset('assets/svg/ic_location.svg'),
           ),
         ],
